@@ -1,0 +1,10 @@
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\bin\Debug\Judah's Bible Quiz.exe.config
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\bin\Debug\Judah's Bible Quiz.exe
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\bin\Debug\Judah's Bible Quiz.pdb
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\obj\Debug\Judah's Bible Quiz.csprojAssemblyReference.cache
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\obj\Debug\Judah_s_Bible_Quiz.Form1.resources
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\obj\Debug\Judah_s_Bible_Quiz.Properties.Resources.resources
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\obj\Debug\Judah's Bible Quiz.csproj.GenerateResource.cache
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\obj\Debug\Judah's Bible Quiz.csproj.CoreCompileInputs.cache
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\obj\Debug\Judah's Bible Quiz.exe
+C:\Users\Home\source\repos\Judah's Bible Quiz\Judah's Bible Quiz\obj\Debug\Judah's Bible Quiz.pdb
