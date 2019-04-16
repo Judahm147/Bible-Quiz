@@ -41,10 +41,12 @@ namespace Judah_s_Bible_Quiz
             choiceTwo.Text = currentQuestion.Choices[1];
             choiceThree.Text = currentQuestion.Choices[2];
             choiceFour.Text = currentQuestion.Choices[3];
+            answerTextBox.ForeColor = Color.DarkGoldenrod;
         }
 
         private void StartQuiz()
         {
+            quiz.Shuffle();
             questionNumber = 1;
             numCorrect = 0;
             nextButton.Text = "Next Question";
@@ -111,11 +113,14 @@ namespace Judah_s_Bible_Quiz
             if (currentQuestion.Answer == selection)
             {
                 result = "Correct!";
+                answerTextBox.ForeColor = Color.Lime;
                 numCorrect++;
             }
             else
+            {
                 result = "Wrong! Answer is option " + currentQuestion.Answer + ".";
-
+                answerTextBox.ForeColor = Color.Red;
+            }
             answerTextBox.Text = result + " " + currentQuestion.AnswerDescription;
         }
 
@@ -157,6 +162,11 @@ namespace Judah_s_Bible_Quiz
         private void choiceTwo_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

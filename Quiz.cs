@@ -10,6 +10,18 @@ namespace Judah_s_Bible_Quiz
     class Quiz
     {
         public List<Question> questions;
+        private Random random = new Random();
+        public void Shuffle()
+        {
+            List<Question> newQuestions = new List<Question>();
+            while (questions.Count > 0)
+            {
+                int QuestionToMove = random.Next(questions.Count);
+                newQuestions.Add(questions[QuestionToMove]);
+                questions.RemoveAt(QuestionToMove);
+            }
+            questions = newQuestions;
+        }
 
         public Quiz(string questionFileName)
         {
@@ -31,6 +43,7 @@ namespace Judah_s_Bible_Quiz
                     questions.Add(new Question(questionDescription, choicesList, answerNumber, answerDescription));                    
                 }
             }
+            
         }
 
     }
