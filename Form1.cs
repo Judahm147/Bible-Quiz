@@ -37,6 +37,7 @@ namespace Judah_s_Bible_Quiz
             choiceOne.Checked = true;
             Question currentQuestion = quiz.questions[questionNumber - 1];
             answerTextBox.Text = currentQuestion.QuestionDescription;
+            currentQuestion.RandomizeChoices();
             choiceOne.Text = currentQuestion.Choices[0];
             choiceTwo.Text = currentQuestion.Choices[1];
             choiceThree.Text = currentQuestion.Choices[2];
@@ -100,6 +101,7 @@ namespace Judah_s_Bible_Quiz
             nextButton.Visible = true;
             string result;
             string choice = "1";
+            Question currentQuestion = quiz.questions[questionNumber - 1];
             if (choiceOne.Checked)
                 choice = choiceOne.Text;
             if (choiceTwo.Checked)
@@ -108,7 +110,7 @@ namespace Judah_s_Bible_Quiz
                 choice = choiceThree.Text;
             if (choiceFour.Checked)
                 choice = choiceFour.Text;
-            Question currentQuestion = quiz.questions[questionNumber - 1];
+
 
             if (currentQuestion.Answer == choice)
             {
