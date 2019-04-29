@@ -99,18 +99,18 @@ namespace Judah_s_Bible_Quiz
             decideButton.Visible = false;
             nextButton.Visible = true;
             string result;
-            string selection = "1";
+            string choice = "1";
             if (choiceOne.Checked)
-                selection = "1";
+                choice = choiceOne.Text;
             if (choiceTwo.Checked)
-                selection = "2";
+                choice = choiceTwo.Text;
             if (choiceThree.Checked)
-                selection = "3";
+                choice = choiceThree.Text;
             if (choiceFour.Checked)
-                selection = "4";
+                choice = choiceFour.Text;
             Question currentQuestion = quiz.questions[questionNumber - 1];
 
-            if (currentQuestion.Answer == selection)
+            if (currentQuestion.Answer == choice)
             {
                 result = "Correct!";
                 answerTextBox.ForeColor = Color.Lime;

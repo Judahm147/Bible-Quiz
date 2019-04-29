@@ -23,10 +23,11 @@ namespace Judah_s_Bible_Quiz
             questions = newQuestions;
         }
 
+
         public Quiz(string questionFileName)
         {
             string questionDescription;
-            string answerNumber;
+            string answer;
             string answerDescription;
             List<string> choicesList = new List<string>();
             questions = new List<Question>();
@@ -35,12 +36,12 @@ namespace Judah_s_Bible_Quiz
                 while (!reader.EndOfStream)
                 {                    
                     questionDescription = reader.ReadLine();
-                    answerNumber = reader.ReadLine();
+                    answer = reader.ReadLine();
                     answerDescription = reader.ReadLine();
                     choicesList = new List<string>();
                     for (int i = 0; i < 4; i++)
                         choicesList.Add(reader.ReadLine());
-                    questions.Add(new Question(questionDescription, choicesList, answerNumber, answerDescription));                    
+                    questions.Add(new Question(questionDescription, choicesList, answer, answerDescription));                    
                 }
             }
             
