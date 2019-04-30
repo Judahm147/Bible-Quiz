@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Judah_s_Bible_Quiz
 {
@@ -16,12 +17,14 @@ namespace Judah_s_Bible_Quiz
         Quiz quiz;
         private int questionNumber;
         private int numCorrect;
+        System.Windows.Forms.Timer questionTimer = new System.Windows.Forms.Timer();
    
 
         public Form1()
         {
             InitializeComponent();
             quiz = new Quiz("C:/Users/Home/source/repos/Judah's Bible Quiz/Judah's Bible Quiz/Questions List.txt");
+
         }
 
         private void choiceOne_CheckedChanged(object sender, EventArgs e)
@@ -43,6 +46,17 @@ namespace Judah_s_Bible_Quiz
             choiceThree.Text = currentQuestion.Choices[2];
             choiceFour.Text = currentQuestion.Choices[3];
             answerTextBox.ForeColor = Color.DarkGoldenrod;
+            
+            questionTimer.Tick += QuestionTimer_Tick;
+            questionTimer.Interval = 300;
+            questionTimer.Start();
+        }
+
+        private void QuestionTimer_Tick(object sender, EventArgs e)
+        {
+            progressBar.Value += 1;
+            if (progressBar.Value >= progressBar.Maximum)
+                decideButton.PerformClick();
         }
 
         private void StartQuiz()
@@ -100,7 +114,9 @@ namespace Judah_s_Bible_Quiz
             decideButton.Visible = false;
             nextButton.Visible = true;
             string result;
-            string choice = "1";
+            string choice = "N";
+            progressBar.Value = 0;
+            questionTimer.Stop();
             Question currentQuestion = quiz.questions[questionNumber - 1];
             if (choiceOne.Checked)
                 choice = choiceOne.Text;

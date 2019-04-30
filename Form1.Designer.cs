@@ -46,6 +46,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +69,7 @@
             this.choiceOne.Checked = true;
             this.choiceOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.choiceOne.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.choiceOne.Location = new System.Drawing.Point(397, 223);
+            this.choiceOne.Location = new System.Drawing.Point(397, 233);
             this.choiceOne.Name = "choiceOne";
             this.choiceOne.Size = new System.Drawing.Size(559, 36);
             this.choiceOne.TabIndex = 1;
@@ -82,7 +83,7 @@
             // 
             this.choiceTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.choiceTwo.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.choiceTwo.Location = new System.Drawing.Point(397, 277);
+            this.choiceTwo.Location = new System.Drawing.Point(397, 287);
             this.choiceTwo.Name = "choiceTwo";
             this.choiceTwo.Size = new System.Drawing.Size(559, 36);
             this.choiceTwo.TabIndex = 2;
@@ -95,7 +96,7 @@
             // 
             this.choiceThree.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.choiceThree.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.choiceThree.Location = new System.Drawing.Point(397, 331);
+            this.choiceThree.Location = new System.Drawing.Point(397, 341);
             this.choiceThree.Name = "choiceThree";
             this.choiceThree.Size = new System.Drawing.Size(559, 36);
             this.choiceThree.TabIndex = 3;
@@ -107,7 +108,7 @@
             // 
             this.choiceFour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.choiceFour.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.choiceFour.Location = new System.Drawing.Point(397, 385);
+            this.choiceFour.Location = new System.Drawing.Point(397, 395);
             this.choiceFour.Name = "choiceFour";
             this.choiceFour.Size = new System.Drawing.Size(559, 36);
             this.choiceFour.TabIndex = 4;
@@ -258,12 +259,22 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // progressBar
+            // 
+            this.progressBar.ForeColor = System.Drawing.Color.Gold;
+            this.progressBar.Location = new System.Drawing.Point(344, 204);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(455, 23);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(1123, 661);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -312,6 +323,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 
