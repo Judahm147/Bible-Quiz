@@ -267,6 +267,7 @@
             this.progressBar.Size = new System.Drawing.Size(455, 23);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 16;
+            this.progressBar.Visible = false;
             // 
             // Form1
             // 

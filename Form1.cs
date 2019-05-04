@@ -17,7 +17,7 @@ namespace Judah_s_Bible_Quiz
         Quiz quiz;
         private int questionNumber;
         private int numCorrect;
-        System.Windows.Forms.Timer questionTimer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer questionTimer;
    
 
         public Form1()
@@ -46,16 +46,16 @@ namespace Judah_s_Bible_Quiz
             choiceThree.Text = currentQuestion.Choices[2];
             choiceFour.Text = currentQuestion.Choices[3];
             answerTextBox.ForeColor = Color.DarkGoldenrod;
-            
+            questionTimer = new System.Windows.Forms.Timer();
             questionTimer.Tick += QuestionTimer_Tick;
-            questionTimer.Interval = 300;
+            questionTimer.Interval = 220;
             questionTimer.Start();
         }
 
         private void QuestionTimer_Tick(object sender, EventArgs e)
         {
             progressBar.Value += 1;
-            if (progressBar.Value >= progressBar.Maximum)
+            if (progressBar.Value == progressBar.Maximum)
                 decideButton.PerformClick();
         }
 
@@ -75,6 +75,7 @@ namespace Judah_s_Bible_Quiz
             answerTextBox.Visible = true;
             startLabel.Visible = false;
             decideButton.Visible = true;
+            progressBar.Visible = true;
             UpdateQuiz();
         }
 
@@ -115,8 +116,9 @@ namespace Judah_s_Bible_Quiz
             nextButton.Visible = true;
             string result;
             string choice = "N";
+            questionTimer.Stop();            
             progressBar.Value = 0;
-            questionTimer.Stop();
+            
             Question currentQuestion = quiz.questions[questionNumber - 1];
             if (choiceOne.Checked)
                 choice = choiceOne.Text;
