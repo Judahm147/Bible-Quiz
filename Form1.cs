@@ -17,6 +17,7 @@ namespace Judah_s_Bible_Quiz
         Quiz quiz;
         private int questionNumber;
         private int numCorrect;
+        private int playerScore;
         System.Windows.Forms.Timer questionTimer;
    
 
@@ -32,12 +33,34 @@ namespace Judah_s_Bible_Quiz
 
         }
 
+        private void UpdateScore(int timeLeft)
+        {
+            if (timeLeft >= 90)
+                playerScore += 20;
+            else if (timeLeft >= 70)
+                playerScore += 15;
+            else if (timeLeft >= 50)
+                playerScore += 10;
+            else if (timeLeft >= 30)
+                playerScore += 5;
+            else if (timeLeft >= 0)
+                playerScore += 2;
+            else
+                playerScore += 0;
+
+            scoreLabel.Text = "Score: " + playerScore;
+        }
+
         private void UpdateQuiz()
         {
             decideButton.Visible = true;
             nextButton.Visible = false;
             questionNumberLabel.Text = "Question " + questionNumber;
             choiceOne.Checked = true;
+            choiceOne.Enabled = true;
+            choiceTwo.Enabled = true;
+            choiceThree.Enabled = true;
+            choiceFour.Enabled = true;
             Question currentQuestion = quiz.questions[questionNumber - 1];
             answerTextBox.Text = currentQuestion.QuestionDescription;
             currentQuestion.RandomizeChoices();
@@ -64,6 +87,8 @@ namespace Judah_s_Bible_Quiz
             quiz.Shuffle();
             questionNumber = 1;
             numCorrect = 0;
+            playerScore = 0;
+            scoreLabel.Text = "Score: " + playerScore;
             nextButton.Text = "Next Question";
             nextButton.Visible = true;
             restartButton.Visible = false;
@@ -76,6 +101,7 @@ namespace Judah_s_Bible_Quiz
             startLabel.Visible = false;
             decideButton.Visible = true;
             progressBar.Visible = true;
+            scoreLabel.Visible = true;
             UpdateQuiz();
         }
 
@@ -97,7 +123,7 @@ namespace Judah_s_Bible_Quiz
         private void EndGame()
         {
             startLabel.Visible = true;
-
+            progressBar.Visible = false;
             startLabel.Text = "Quiz Completed";
             choiceOne.Visible = false;
             choiceTwo.Visible = false;
@@ -108,10 +134,13 @@ namespace Judah_s_Bible_Quiz
             nextButton.Visible = false;
             restartButton.Visible = true;
             questionNumberLabel.Text = "You answered " + numCorrect + " questions correctly out of " + questionNumber;
+            questionNumberLabel.Text += "\nYour score is " + playerScore + "points";
         }
 
         private void decideButton_Click(object sender, EventArgs e)
         {
+            UpdateScore(progressBar.Maximum - progressBar.Value);
+
             decideButton.Visible = false;
             nextButton.Visible = true;
             string result;
@@ -119,7 +148,9 @@ namespace Judah_s_Bible_Quiz
             questionTimer.Stop();            
             progressBar.Value = 0;
             
+            
             Question currentQuestion = quiz.questions[questionNumber - 1];
+
             if (choiceOne.Checked)
                 choice = choiceOne.Text;
             if (choiceTwo.Checked)
@@ -129,6 +160,10 @@ namespace Judah_s_Bible_Quiz
             if (choiceFour.Checked)
                 choice = choiceFour.Text;
 
+            choiceOne.Enabled = false;
+            choiceTwo.Enabled = false;
+            choiceThree.Enabled = false;
+            choiceFour.Enabled = false;
 
             if (currentQuestion.Answer == choice)
             {

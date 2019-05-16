@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.questionNumberLabel = new System.Windows.Forms.Label();
             this.choiceOne = new System.Windows.Forms.RadioButton();
             this.choiceTwo = new System.Windows.Forms.RadioButton();
@@ -38,7 +37,6 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.answerTextBox = new System.Windows.Forms.TextBox();
             this.startLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.restartButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -47,7 +45,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +59,7 @@
             this.questionNumberLabel.Size = new System.Drawing.Size(70, 26);
             this.questionNumberLabel.TabIndex = 0;
             this.questionNumberLabel.Text = "label1";
+            this.questionNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.questionNumberLabel.Visible = false;
             this.questionNumberLabel.Click += new System.EventHandler(this.questionNumberLabel_Click);
             // 
@@ -173,18 +172,8 @@
             this.startLabel.Size = new System.Drawing.Size(571, 36);
             this.startLabel.TabIndex = 8;
             this.startLabel.Text = "Welcome to Judah\'s Bible Quiz";
+            this.startLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.startLabel.Click += new System.EventHandler(this.startLabel_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(832, 448);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 175);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // restartButton
             // 
@@ -192,7 +181,7 @@
             this.restartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.restartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.restartButton.ForeColor = System.Drawing.Color.AliceBlue;
-            this.restartButton.Location = new System.Drawing.Point(48, 448);
+            this.restartButton.Location = new System.Drawing.Point(465, 376);
             this.restartButton.Name = "restartButton";
             this.restartButton.Size = new System.Drawing.Size(227, 69);
             this.restartButton.TabIndex = 10;
@@ -269,12 +258,26 @@
             this.progressBar.TabIndex = 16;
             this.progressBar.Visible = false;
             // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.scoreLabel.Location = new System.Drawing.Point(59, 80);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(93, 26);
+            this.scoreLabel.TabIndex = 17;
+            this.scoreLabel.Text = "Score: 0";
+            this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.scoreLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(1123, 661);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel5);
@@ -291,14 +294,12 @@
             this.Controls.Add(this.choiceTwo);
             this.Controls.Add(this.choiceOne);
             this.Controls.Add(this.questionNumberLabel);
-            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Judah\'s Bible Quiz";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -316,7 +317,6 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.TextBox answerTextBox;
         private System.Windows.Forms.Label startLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button restartButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -325,6 +325,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label scoreLabel;
     }
 }
 
