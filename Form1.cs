@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
 
 namespace Judah_s_Bible_Quiz
 {
@@ -24,7 +25,9 @@ namespace Judah_s_Bible_Quiz
         public Form1()
         {
             InitializeComponent();
-            quiz = new Quiz("C:/Users/Home/source/repos/Judah's Bible Quiz/Judah's Bible Quiz/Questions List.txt");
+            string projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+
+            quiz = new Quiz(projectPath + "/Questions list.txt");
 
         }
 
