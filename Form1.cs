@@ -142,14 +142,14 @@ namespace Judah_s_Bible_Quiz
 
         private void decideButton_Click(object sender, EventArgs e)
         {
-            UpdateScore(progressBar.Maximum - progressBar.Value);
+            
 
             decideButton.Visible = false;
             nextButton.Visible = true;
             string result;
             string choice = "N";
             questionTimer.Stop();            
-            progressBar.Value = 0;
+            
             
             
             Question currentQuestion = quiz.questions[questionNumber - 1];
@@ -167,9 +167,10 @@ namespace Judah_s_Bible_Quiz
             choiceTwo.Enabled = false;
             choiceThree.Enabled = false;
             choiceFour.Enabled = false;
-
+            
             if (currentQuestion.Answer == choice)
             {
+                UpdateScore(progressBar.Maximum - progressBar.Value);
                 result = "Correct!";
                 answerTextBox.ForeColor = Color.Lime;
                 numCorrect++;
@@ -180,6 +181,7 @@ namespace Judah_s_Bible_Quiz
                 answerTextBox.ForeColor = Color.Red;
             }
             answerTextBox.Text = result + " " + currentQuestion.AnswerDescription;
+            progressBar.Value = 0;
         }
 
         private void restartButton_Click(object sender, EventArgs e)
